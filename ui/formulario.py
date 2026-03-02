@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
+from services.chamado_service import criar_chamado
 
 def abrir_formulario():
     janela = tk.Tk()
@@ -39,8 +40,15 @@ def abrir_formulario():
         descricao = entrada_desc.get("1.0", tk.END).strip()
         urgencia = combo_urgencia.get()
 
-        print("Chamado Enviado:")
-        print(nome, setor, problema, descricao, urgencia)
+        dados = {
+            "nome": nome,
+            "setor": setor,
+            "problema": problema,
+            "descricao": descricao,
+            "urgencia": urgencia
+        }
+
+        criar_chamado(dados)
     
     btn_enviar = tk.Button(janela, text="Enviar", command=enviar)
     btn_enviar.pack(pady=15)
