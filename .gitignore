@@ -3,3 +3,11 @@ __pycache__/
 *.pyc
 *.log
 *.db
+build/
+dist/
+*.spec
+*.exe
+*.toc
+*.pkg
+.env
+venv/
