@@ -1,6 +1,16 @@
 import sqlite3 as sql
+import os
+import sys
+
+def get_base_path():
+    if getattr(sys, 'frozen', False):
+        return os.path.dirname(sys.executable)
+    return os.path.dirname(os.path.abspath(__file__))
 
 def criar_tabela():
+    BASE_DIR = get_base_path()
+    db_path = os.path.join(BASE_DIR, "database.db")
+
     con = sql.connect("database/database.db")
     cursor = con.cursor()
 
