@@ -7,7 +7,7 @@ import sys
 def get_base_path():
     if getattr(sys, 'forzen', False):
         return os.path.dirname(sys.executable)
-    return os.path.dirname(os.paath.abspath(__file__))
+    return os.path.dirname(os.path.abspath(__file__))
 
 BASE_DIR = get_base_path()
 
