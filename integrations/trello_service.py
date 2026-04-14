@@ -2,8 +2,16 @@ import requests
 import json
 from dotenv import load_dotenv
 import os
+import sys
 
-load_dotenv()
+def get_base_path():
+    if getattr(sys, 'forzen', False):
+        return os.path.dirname(sys.executable)
+    return os.path.dirname(os.paath.abspath(__file__))
+
+BASE_DIR = get_base_path()
+
+load_dotenv(os.path.join(BASE_DIR, ".env"))
 
 api_key = os.getenv("TRELLO_API_KEY")
 api_token = os.getenv("TRELLO_API_TOKEN")
