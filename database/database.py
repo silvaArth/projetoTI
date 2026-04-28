@@ -1,17 +1,15 @@
 import sqlite3 as sql
 import os
-import sys
 
 def get_base_path():
-    if getattr(sys, 'frozen', False):
-        return os.path.dirname(sys.executable)
-    return os.path.dirname(os.path.abspath(__file__))
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    return os.path.join(BASE_DIR, "database.db")
+
+def conectar():
+    return sql.connect(get_base_path())
 
 def criar_tabela():
-    BASE_DIR = get_base_path()
-    db_path = os.path.join(BASE_DIR, "database.db")
-
-    con = sql.connect(db_path)
+    con = conectar()
     cursor = con.cursor()
 
     cursor.execute("""CREATE TABLE IF NOT EXISTS chamados_ti (

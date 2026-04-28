@@ -2,16 +2,8 @@ import requests
 import json
 from dotenv import load_dotenv
 import os
-import sys
 
-def get_base_path():
-    if getattr(sys, 'frozen', False):
-        return os.path.dirname(sys.executable)
-    return os.path.dirname(os.path.abspath(__file__))
-
-BASE_DIR = get_base_path()
-
-load_dotenv(os.path.join(BASE_DIR, ".env"))
+load_dotenv()
 
 api_key = os.getenv("TRELLO_API_KEY")
 api_token = os.getenv("TRELLO_API_TOKEN")
@@ -34,9 +26,9 @@ def criar_cartao(dados):
     }
 
     query = {
-    'idList': {list_id},
-    'key': {api_key},
-    'token': {api_token},
+    'idList': list_id,
+    'key': api_key,
+    'token': api_token,
     'name': dados["setor"] + " - " + dados["nome"] + ": " + dados["problema"],
     'desc': dados["descricao"],
     'idLabels': id_label
