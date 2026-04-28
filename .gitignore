@@ -9,5 +9,4 @@ dist/
 *.exe
 *.toc
 *.pkg
-.env
 venv/
