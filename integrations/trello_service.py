@@ -34,11 +34,14 @@ def criar_cartao(dados):
     'idLabels': id_label
     }
 
-    response = requests.request(
-    "POST",
-    url,
-    headers=headers,
-    params=query
-    )
+    response = requests.post(url, params=query)
 
-    print(json.dumps(json.loads(response.text), sort_keys=True, indent=4, separators=(",", ": ")))
+    if response.status_code != 200:
+        print("Erro no Trello:", response.status_code)
+        print(response.text)
+        return
+    try:
+        print(response.json())
+    except:
+        print("Resposta inválida do Trello:")
+        print(response.text)
