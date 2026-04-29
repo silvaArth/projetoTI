@@ -1,9 +1,11 @@
 from flask import Flask, render_template, request, redirect, url_for
 from services.chamado_service import criar_chamado
 from integrations.trello_service import criar_cartao
-from datetime import datetime
+from database.database import criar_tabela
 
 app = Flask(__name__)
+
+criar_tabela()
 
 @app.route('/')
 def index():
