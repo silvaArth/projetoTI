@@ -1,0 +1,114 @@
+*{
+    font-family: 'Montserrat', sans-serif;
+}
+
+body{
+    background-color: #064669;
+}
+
+header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-height: 180px;
+}
+
+header img{
+    width: 500px;
+    height: auto;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+}
+
+main h1{
+    font-size: 2.4rem;
+    color: #fff;
+    font-weight: 800;
+}
+
+#formulario{
+    display: flex;
+    flex-direction: column;
+    width: 900px;
+    background-color: #fff;
+    box-shadow: 1px 10px 16px -2px rgba(0,0,0,0.3);
+    border-radius: 20px;
+    padding: 30px;
+}
+
+#opcoes{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+
+}
+
+.caixa{
+    border: 1.5px solid #064669;
+    border-radius: 6px;
+    width: 30%;
+    padding: 15px;
+    color: #064669;
+}
+
+.caixa:focus{
+    outline: none;
+    border: 2px solid #064669;
+}
+
+.selecao{
+    cursor: pointer;
+}
+
+.texto{
+    resize: vertical;
+}
+
+#botao{
+    background-color: #064669;
+    color: #fff;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+#botao:hover{
+    background-color: #fff;
+    color: #064669;
+    scale: 1.1;
+}
+
+@media(max-width: 1000px){
+    header img{
+        max-width: 300px;
+        width: 90%;
+    }
+
+    main h1{
+        font-size: 1.3rem;
+    }
+
+    #formulario{
+        max-width: 400px;
+        width: 90%;
+    }
+
+    .caixa{
+        width: 90%;
+    }
+}
+
+@media(max-width: 600px){
+    main h1{
+        font-size: 0.8rem;
+    }
+
+    #formulario{
+        max-width: 300px;
+    }
+}
